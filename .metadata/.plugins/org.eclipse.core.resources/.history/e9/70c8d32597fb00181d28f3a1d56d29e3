@@ -44,19 +44,6 @@ public class MyResource {
     	
     }
 	
-	@GET
-	@Produces(MediaType.TEXT_PLAIN)
-	@Path("/update")
-	public String getUpdate() throws Exception
-    {
-		System.out.println("In  getUpdate function");
-    	new RMI().testUpdate();
-    	System.out.println("Updated Record");
-    	
-		return "update";
-    	
-    }
-	
 	/*public Response getIt() throws MalformedURLException, RemoteException, Exception {
 	System.out.println("in getit function");
 	

@@ -26,5 +26,6 @@ public class RMI {
 	
 	public void testUpdate() throws RemoteException {
 		System.out.println(db.update(456154,"Hello sarah"));
+		//System.out.println(db.create("hello"));
 	}
 }
