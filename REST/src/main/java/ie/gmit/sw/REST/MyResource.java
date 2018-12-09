@@ -6,7 +6,10 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
 import javax.inject.Singleton;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -18,33 +21,36 @@ import ie.gmit.sw.RMI;
 @Path("/resource")
 public class MyResource {
 
-	@GET
+	@POST
 	@Produces(MediaType.TEXT_PLAIN)
 	@Path("/create")
 	public String getIt() throws Exception
     {
 		System.out.println("In  getit function");
-    	new RMI().testGetData();
+    	int x  = new RMI().testCreate();
     	System.out.println("created Record");
     	
-		return "connect";
+		return "Record addedd to database: " + x ;
     	
     }
 	
-	@GET
+	@POST
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_PLAIN)
 	@Path("/read")
-	public String getRead() throws Exception
+	public String getRead(@FormParam("RID") int rid) throws Exception
     {
-		System.out.println("In  getit function");
-    	new RMI().testRead();
-    	System.out.println("Read Record");
-    	
-		return "read";
+		
+		String result = new RMI().read(rid);
+		//System.out.println("In  getit function");
+    	//System.out.println("Read Record");
+		
+    	return "Read Record " + rid + " from file. Value = " + result  ;
     	
     }
 	
-	@GET
+	@POST
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_PLAIN)
 	@Path("/update")
 	public String getUpdate() throws Exception
@@ -57,16 +63,17 @@ public class MyResource {
     	
     }
 	
-	@GET
+	@POST
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_PLAIN)
 	@Path("/delete")
-	public String getDelete() throws Exception
+	public String getDelete(@FormParam("RID") int rid) throws Exception
     {
 		System.out.println("In  getDelete function");
-    	new RMI().testUpdate();
+    	new RMI().delete(rid);
     	System.out.println("deleted Record");
     	
-		return "delete";
+		return "Deleted Record " + rid ;
     	
     }
 	

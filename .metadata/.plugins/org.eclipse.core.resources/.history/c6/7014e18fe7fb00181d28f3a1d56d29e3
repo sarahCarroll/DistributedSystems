@@ -1,0 +1,22 @@
+<html>
+
+<head>
+<title>View Existing Rental Booking</title>
+</head>
+
+<body>
+
+<h2>Enter Rental Booking Number To View:</h2>
+<p>&nbsp;</p>
+<form method="POST" action="/read"
+  <p><input type="text" name="RID" required size="20">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+  <input type="submit" value="Search">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="index.htm">Return To Menu</a>
+  </form>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>
+

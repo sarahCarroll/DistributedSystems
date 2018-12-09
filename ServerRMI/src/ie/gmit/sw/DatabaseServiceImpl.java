@@ -25,7 +25,7 @@ public class DatabaseServiceImpl extends UnicastRemoteObject implements Database
 
 	private int dbchanged = 0;
 
-	private final int minchanges = 2; // write to disk if > 2 items outstanding
+	private final int minchanges = 0; // write to disk if > 2 items outstanding
 	private final int baserec = 456123;
 
 	private List<String> alist;

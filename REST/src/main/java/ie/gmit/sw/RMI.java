@@ -14,21 +14,28 @@ public class RMI {
 		System.out.println("connection");
 	}
 
-	public void testGetData() throws RemoteException {
-		System.out.println(db.create("Hello"));
-		//System.out.println(db.create("hello"));
+	public int create(String newrecord) throws RemoteException {
+		int rid = db.create(newrecord);
+		System.out.println("create returned: " +rid);
+		//might need error handling
+		return rid;
 	}
 	
-	public void testRead() throws RemoteException {
-		System.out.println(db.read(456155));
-		//System.out.println(db.create("hello"));
+	public String read(int rid) throws RemoteException {
+		String result = db.read(rid);
+		if(result == null){
+			System.out.println("record does not exist");
+		}
+		else
+			System.out.println(result);
+		return result;
 	}
 	
 	public void testUpdate() throws RemoteException {
-		System.out.println(db.update(456154,"Hello sarah"));
+		System.out.println(db.update(456155,"Hello sarah"));
 	}
 	
-	public void testDelete() throws RemoteException {
-		System.out.println(db.delete(456155));
+	public void delete(int rid) throws RemoteException {
+		System.out.println(db.delete(rid));
 	}
 }
