@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://sw.gmit.ie/models/"
+ xmlns:tns="http://sw.gmit.ie/models/" elementFormDefault="qualified">
+
+<element name="rental">
+	<complexType>
+		<sequence>
+			<element name="surname" type="string"/>
+			<element name="firstname" type="string"/>
+			<element name="startdate" type="string"/>	
+			<element name="days" type="string"/>
+			<element name="cartype" type="string"/>
+		</sequence>
+	</complexType>
+</element>
+
+</schema>

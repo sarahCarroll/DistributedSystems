@@ -22,7 +22,6 @@ INDEX VERSION 1.130+C:\Users\sarahc\Desktop\DSProject\DistributedSystems\.metada
 3677362244.index
 575557243.index
 1755200479.index
-3506751151.index
 3789739560.index
 2975922945.index
 2688783450.index

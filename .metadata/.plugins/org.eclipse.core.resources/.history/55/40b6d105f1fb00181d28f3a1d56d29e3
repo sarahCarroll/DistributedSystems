@@ -29,12 +29,10 @@ public class MyResource {
 						 @FormParam("City") String city,
 						 @FormParam("StartDate") String startDate,
 						 @FormParam("Days") String days,
-						 @FormParam("CarType") String ct
+						 @FormParam("CarType") String ct,
 						 ) throws Exception
     {
-		String newrec = "<rental><surname>" + sname + "</surname><firstname>" + fname + "</firstname>"+ 
-						"<city>" + city + "</city><startdate>" + startDate + "</startdate>"+ 
-						"<days>" + days + "</days><cartype>" + ct + "</cartype></rental>";
+		String newrec = "<rental><surname>" + sname + "</surname><firstname>" + fname + "</firstname></rental>";
 		System.out.println("In  getit function");
 		System.out.println(newrec);
     	int x  = new RMI().create(newrec);

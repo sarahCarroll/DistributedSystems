@@ -96,3 +96,16 @@
 0:0:0:0:0:0:0:1 - - [09/Dec/2018:20:11:25 +0000] "POST /REST/webapi/resource/create HTTP/1.1" 200 32
 0:0:0:0:0:0:0:1 - - [09/Dec/2018:20:11:40 +0000] "GET /REST/read.htm HTTP/1.1" 304 -
 0:0:0:0:0:0:0:1 - - [09/Dec/2018:20:11:44 +0000] "POST /REST/webapi/resource/read HTTP/1.1" 200 104
+0:0:0:0:0:0:0:1 - - [09/Dec/2018:20:18:22 +0000] "POST /REST/webapi/resource/read HTTP/1.1" 200 66
+0:0:0:0:0:0:0:1 - - [09/Dec/2018:20:20:37 +0000] "GET /REST/index.htm HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [09/Dec/2018:20:20:41 +0000] "GET /REST/create.htm HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [09/Dec/2018:20:20:54 +0000] "POST /REST/webapi/resource/create HTTP/1.1" 200 6
+0:0:0:0:0:0:0:1 - - [09/Dec/2018:20:21:07 +0000] "GET /REST/read.htm HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [09/Dec/2018:20:21:10 +0000] "POST /REST/webapi/resource/read HTTP/1.1" 200 71
+0:0:0:0:0:0:0:1 - - [09/Dec/2018:20:33:10 +0000] "GET /REST/index.htm HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [09/Dec/2018:20:33:11 +0000] "GET /REST/read.htm HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [09/Dec/2018:20:33:14 +0000] "GET /REST/create.htm HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [09/Dec/2018:20:33:48 +0000] "POST /REST/webapi/resource/create HTTP/1.1" 200 6
+0:0:0:0:0:0:0:1 - - [09/Dec/2018:20:33:57 +0000] "GET /REST/read.htm HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [09/Dec/2018:20:34:02 +0000] "POST /REST/webapi/resource/read HTTP/1.1" 200 153
+0:0:0:0:0:0:0:1 - - [09/Dec/2018:20:35:17 +0000] "POST /REST/webapi/resource/read HTTP/1.1" 200 153
