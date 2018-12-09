@@ -28,9 +28,8 @@ public class MyResource {
 						 @FormParam("Firstname") String fname
 						 ) throws Exception
     {
-		String newrec = "<rental><surname>" + sname + "</surname><firstname>" + fname + "</firstname></rental>";
+		String newrec = "<rental><surname>" + sname + "</suname><firstname>" + fname + "</firstname></rental>";
 		System.out.println("In  getit function");
-		System.out.println(newrec);
     	int x  = new RMI().create(newrec);
     	System.out.println("Record added to database: " + x );
     	
@@ -48,7 +47,7 @@ public class MyResource {
 		//System.out.println("In  getit function");
     	//System.out.println("Read Record");
 		
-    	return result  ;
+    	return "Read Record " + rid + " from file. Value = " + result  ;
     	
     }
 	

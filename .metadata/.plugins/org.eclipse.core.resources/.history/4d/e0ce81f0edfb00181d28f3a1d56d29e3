@@ -24,22 +24,19 @@ public class MyResource {
 	@POST
 	@Produces(MediaType.TEXT_PLAIN)
 	@Path("/create")
-	public int create(@FormParam("Surname") String sname,
-						 @FormParam("Firstname") String fname
-						 ) throws Exception
+	public String create(@FormParam("Surname") String sname) throws Exception
     {
-		String newrec = "<rental><surname>" + sname + "</surname><firstname>" + fname + "</firstname></rental>";
 		System.out.println("In  getit function");
-		System.out.println(newrec);
-    	int x  = new RMI().create(newrec);
-    	System.out.println("Record added to database: " + x );
+    	int x  = new RMI().create(rid);
+    	System.out.println("created Record");
     	
-		return x;
+		return "Record addedd to database: " + x ;
+    	
     }
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	@Produces(MediaType.TEXT_XML)
+	@Produces(MediaType.TEXT_PLAIN)
 	@Path("/read")
 	public String getRead(@FormParam("RID") int rid) throws Exception
     {
@@ -48,7 +45,7 @@ public class MyResource {
 		//System.out.println("In  getit function");
     	//System.out.println("Read Record");
 		
-    	return result  ;
+    	return "Read Record " + rid + " from file. Value = " + result  ;
     	
     }
 	
