@@ -62,10 +62,10 @@ public class MyResource {
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_PLAIN)
 	@Path("/update")
-	public String update(@FormParam("RID") int rid) throws Exception
+	public String update() throws Exception
     {
 		System.out.println("In  getUpdate function");
-    	new RMI().update();
+    	new RMI().testUpdate();
     	System.out.println("Updated Record");
     	
 		return "update";

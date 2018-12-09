@@ -65,7 +65,7 @@ public class MyResource {
 	public String update(@FormParam("RID") int rid) throws Exception
     {
 		System.out.println("In  getUpdate function");
-    	new RMI().update();
+    	new RMI().testUpdate(rid);
     	System.out.println("Updated Record");
     	
 		return "update";

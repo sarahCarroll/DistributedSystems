@@ -31,15 +31,8 @@ public class RMI {
 		return result;
 	}
 	
-	public void update(int rid,String newrecord) throws RemoteException {
-		String result = db.read(rid);
-		if(result == null){
-			System.out.println("record does not exist");
-		}
-		else{
-			System.out.println(result);
-		}
-		System.out.println(db.update(rid,newrecord));
+	public void update() throws RemoteException {
+		System.out.println(db.update(456155,"Hello sarah"));
 	}
 	
 	public void delete(int rid) throws RemoteException {
