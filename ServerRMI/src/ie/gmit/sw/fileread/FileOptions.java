@@ -1,0 +1,211 @@
+package ie.gmit.sw.fileread;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class FileOptions {
+
+	private static final long serialVersionUID = 1L;
+
+	private int createCount;
+	private int readCount;
+	private int updateCount;
+	private int deleteCount;
+	private int statusCount;
+
+	private int dbchanged = 0;
+
+	private final int minchanges = 2; // write to disk if > 2 items outstanding
+	private final int baserec = 456123;
+
+	private List<String> alist;
+
+	// Constructor
+	public FileOptions() throws RemoteException {
+		dbchanged = createCount = readCount = updateCount = deleteCount = statusCount = 0;
+	}
+
+	// Implementing the interface methods
+
+	// CREATE new Car Rental record
+
+	public int create(String newrec) {
+		// System.out.println("This is an example create method");
+		createCount++;
+
+		if (alist == null) {
+			if (load() != 0)
+				alist = new ArrayList<String>(); // Code added here to serialise
+													// ArrayList from disk
+		}
+
+		alist.add(newrec); // This will add string at the end of List
+
+		int recnum = baserec + (alist.size() - 1); // first record has id of
+													// 456123
+
+		dbchanged++;
+
+		save();
+
+		return recnum;
+
+	}
+
+	// READ existing Car Rental Record
+
+	public String read(int recnum) {
+		// System.out.println("This is an example read method");
+		readCount++;
+
+		if (alist == null) {
+			if (load() != 0)
+				alist = new ArrayList<String>(); // Code added here to serialise
+													// ArrayList from disk
+		}
+
+		if (recnum < baserec)
+			return null;
+
+		if (recnum > alist.size() + baserec - 1)
+			return null;
+
+		return alist.get(recnum - baserec);
+
+	}
+
+	// UPDATE existing Car Rental record
+
+	public int update(int recnum, String updatedrec) {
+		// System.out.println("This is an example update method");
+		updateCount++;
+
+		if (alist == null) {
+			if (load() != 0)
+				alist = new ArrayList<String>(); // Code added here to serialise
+													// ArrayList from disk
+		}
+
+		if (recnum < baserec)
+			return -1;
+
+		if (recnum > alist.size() + baserec - 1)
+			return -1;
+
+		alist.set(recnum - baserec, updatedrec);
+
+		dbchanged++;
+
+		save();
+
+		return 0; // good return code
+
+	}
+
+	// DELETE existing Car Rental record
+
+	public int delete(int recnum) {
+		// System.out.println("This is an example delete method");
+		deleteCount++;
+
+		if (alist == null) {
+			if (load() != 0)
+				alist = new ArrayList<String>(); // Code added here to serialise
+													// ArrayList from disk
+		}
+
+		if (recnum < baserec)
+			return -1;
+
+		if (recnum > alist.size() + baserec - 1)
+			return -1;
+
+		alist.set(recnum - baserec, null); // just set entry to null to maintain
+											// rental number sequence
+
+		dbchanged++;
+
+		save();
+
+		return 0;
+
+	}
+
+	public String status() {
+
+		statusCount++;
+
+		if (alist == null) {
+			if (load() != 0)
+				alist = new ArrayList<String>(); // Code added here to serialise
+													// ArrayList from disk
+		}
+
+		int numrecs = (alist == null) ? 0 : alist.size();
+
+		String r = "\nCar Hire Server Status" + "\n--------------------------------------"
+				+ "\nNumber of Creates     = " + createCount + "\nNumber of Reads       = " + readCount
+				+ "\nNumber of Updates     = " + updateCount + "\nNumber of Deletes     = " + deleteCount
+				+ "\nNumber of Statuses    = " + statusCount + "\nCurrent Rentals Count = " + numrecs;
+
+		return r;
+	}
+
+	// Reference: https://beginnersbook.com/
+
+	// Private methods only called internally within DatabaseServiceImpl class
+	//
+	private int save() {
+
+		System.out.println("In save() function - dbchanged = " + dbchanged);
+		if (dbchanged > minchanges) {
+			try {
+				System.out.println("Saving file ...\n");
+				FileOutputStream fos = new FileOutputStream("RENTALS.DAT");
+				ObjectOutputStream oos = new ObjectOutputStream(fos);
+				oos.writeObject(alist);
+				oos.close();
+				fos.close();
+				dbchanged = 0;
+			} catch (IOException ioe) {
+				ioe.printStackTrace();
+				return -1;
+			}
+
+		}
+
+		return 0;
+	}
+
+	@SuppressWarnings("unchecked")
+	private int load() {
+
+		alist = null; // start with blank slate!
+
+		try {
+			FileInputStream fis = new FileInputStream("RENTALS.DAT");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			try {
+				alist = (ArrayList<String>) ois.readObject();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				ois.close();
+				return -1;
+			}
+			ois.close();
+			fis.close();
+			return 0;
+		} catch (IOException ioe) {
+			// ioe.printStackTrace();
+			return -1;
+		}
+	}
+
+}

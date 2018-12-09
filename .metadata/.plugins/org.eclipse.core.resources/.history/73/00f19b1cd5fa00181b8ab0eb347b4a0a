@@ -1,0 +1,20 @@
+package ie.gmit.sw;
+
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+
+public class RMI {
+	
+	private DatabaseService  db;
+	
+	public RMI() throws MalformedURLException, RemoteException, NotBoundException {
+		 db = (DatabaseService) Naming.lookup("rmi://localhost/databaseservice");
+		System.out.println("connection");
+	}
+
+	public void testGetData() throws Exception {
+		db.create("Hello");
+	}
+}

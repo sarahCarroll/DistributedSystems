@@ -1,0 +1,34 @@
+package ie.gmit.sw;
+
+import java.rmi.*;
+import java.rmi.server.*;
+import java.util.*;
+import java.io.*;
+
+/*
+ *  @author Sarah Carroll - G00330821
+ * 
+ *  DatabaseService RMI Implementation
+ * 
+ */
+
+// Implementing the remote interface 
+public class DatabaseServiceImpl extends UnicastRemoteObject implements DatabaseService {
+
+	
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected DatabaseServiceImpl() throws RemoteException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String test() throws RemoteException {
+		return "Hello my name is sarah :)";
+	}
+}

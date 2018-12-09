@@ -1,0 +1,24 @@
+package ie.gmit.sw;
+
+import java.rmi.*;
+
+/*
+ *  @author Sarah Carroll - G00330821
+ * 
+ *  DatabaseService RMI Interface
+ * 
+ */
+
+// Creating Remote interface for Car Hire application 
+
+public interface DatabaseService extends Remote {
+	int create(String newrec) throws RemoteException;
+
+	String read(int rec) throws RemoteException;
+
+	int update(int rec, String updatedrec) throws RemoteException;
+
+	int delete(int rec) throws RemoteException;
+
+	String status() throws RemoteException;
+}
