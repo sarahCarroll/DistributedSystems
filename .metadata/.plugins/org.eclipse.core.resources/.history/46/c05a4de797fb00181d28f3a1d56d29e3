@@ -19,8 +19,8 @@ public interface DatabaseService extends Remote {
 
 	public int update(int rec, String updatedrec) throws RemoteException;
 
-	public int delete(int rec) throws RemoteException;
-
+//	public int delete(int rec) throws RemoteException;
+//
 //	public String status() throws RemoteException;
 	
 	public String test() throws RemoteException;

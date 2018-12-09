@@ -20,15 +20,11 @@ public class RMI {
 	}
 	
 	public void testRead() throws RemoteException {
-		System.out.println(db.read(456155));
+		System.out.println(db.read(456154));
 		//System.out.println(db.create("hello"));
 	}
 	
 	public void testUpdate() throws RemoteException {
 		System.out.println(db.update(456154,"Hello sarah"));
-	}
-	
-	public void testDelete() throws RemoteException {
-		System.out.println(db.delete(456155));
 	}
 }

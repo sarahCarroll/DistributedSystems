@@ -108,35 +108,6 @@ public class DatabaseServiceImpl extends UnicastRemoteObject implements Database
 
 	}
 
-	// DELETE existing Car Rental record
-
-	public int delete(int recnum) {
-		// System.out.println("This is an example delete method");
-		deleteCount++;
-
-		if (alist == null) {
-			if (load() != 0)
-				alist = new ArrayList<String>(); // Code added here to serialise
-													// ArrayList from disk
-		}
-
-		if (recnum < baserec)
-			return -1;
-
-		if (recnum > alist.size() + baserec - 1)
-			return -1;
-
-		alist.set(recnum - baserec, null); // just set entry to null to maintain
-											// rental number sequence
-
-		dbchanged++;
-
-		save();
-
-		return 0;
-
-	}
-
 	private int save() {
 
 		System.out.println("In save() function - dbchanged = " + dbchanged);

@@ -62,11 +62,11 @@ public class MyResource {
 	@Path("/delete")
 	public String getDelete() throws Exception
     {
-		System.out.println("In  getDelete function");
+		System.out.println("In  getUpdate function");
     	new RMI().testUpdate();
-    	System.out.println("deleted Record");
+    	System.out.println("Updated Record");
     	
-		return "delete";
+		return "update";
     	
     }
 	

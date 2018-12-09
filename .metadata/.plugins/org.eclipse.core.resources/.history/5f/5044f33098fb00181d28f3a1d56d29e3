@@ -57,19 +57,6 @@ public class MyResource {
     	
     }
 	
-	@GET
-	@Produces(MediaType.TEXT_PLAIN)
-	@Path("/delete")
-	public String getDelete() throws Exception
-    {
-		System.out.println("In  getDelete function");
-    	new RMI().testUpdate();
-    	System.out.println("deleted Record");
-    	
-		return "delete";
-    	
-    }
-	
 	/*public Response getIt() throws MalformedURLException, RemoteException, Exception {
 	System.out.println("in getit function");
 	

@@ -64,9 +64,9 @@ public class MyResource {
     {
 		System.out.println("In  getDelete function");
     	new RMI().testUpdate();
-    	System.out.println("deleted Record");
+    	System.out.println("Updated Record");
     	
-		return "delete";
+		return "update";
     	
     }
 	
