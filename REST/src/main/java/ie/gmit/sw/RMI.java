@@ -18,4 +18,9 @@ public class RMI {
 		System.out.println(db.create("Hello"));
 		//System.out.println(db.create("hello"));
 	}
+	
+	public void testRead() throws RemoteException {
+		System.out.println(db.read(456154));
+		//System.out.println(db.create("hello"));
+	}
 }

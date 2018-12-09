@@ -58,6 +58,28 @@ public class DatabaseServiceImpl extends UnicastRemoteObject implements Database
 
 	}
 
+	// READ existing Car Rental Record
+
+	public String read(int recnum) {
+		// System.out.println("This is an example read method");
+		readCount++;
+
+		if (alist == null) {
+			if (load() != 0)
+				alist = new ArrayList<String>(); // Code added here to serialise
+													// ArrayList from disk
+		}
+
+		if (recnum < baserec)
+			return null;
+
+		if (recnum > alist.size() + baserec - 1)
+			return null;
+
+		return alist.get(recnum - baserec);
+
+	}
+
 	private int save() {
 
 		System.out.println("In save() function - dbchanged = " + dbchanged);

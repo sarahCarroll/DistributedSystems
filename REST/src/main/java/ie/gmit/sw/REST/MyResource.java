@@ -15,12 +15,12 @@ import javax.ws.rs.core.Response;
 import ie.gmit.sw.DatabaseService;
 import ie.gmit.sw.RMI;
 
-@Path("/hello")
+@Path("/resource")
 public class MyResource {
 
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
-	@Path("/test")
+	@Path("/create")
 	public String getIt() throws Exception
     {
 		System.out.println("In  getit function");
@@ -28,6 +28,19 @@ public class MyResource {
     	System.out.println("created Record");
     	
 		return "connect";
+    	
+    }
+	
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	@Path("/read")
+	public String getRead() throws Exception
+    {
+		System.out.println("In  getit function");
+    	new RMI().testRead();
+    	System.out.println("Read Record");
+    	
+		return "read";
     	
     }
 	

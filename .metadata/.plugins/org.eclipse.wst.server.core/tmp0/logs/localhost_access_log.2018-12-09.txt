@@ -1,3 +1,11 @@
 127.0.0.1 - - [09/Dec/2018:09:13:51 +0000] "GET / HTTP/1.1" 404 1036
 0:0:0:0:0:0:0:1 - - [09/Dec/2018:09:13:55 +0000] "GET /REST/ HTTP/1.1" 200 253
 0:0:0:0:0:0:0:1 - - [09/Dec/2018:09:14:14 +0000] "GET /REST/webapi/hello/test HTTP/1.1" 200 7
+127.0.0.1 - - [09/Dec/2018:09:21:45 +0000] "GET / HTTP/1.1" 404 1036
+0:0:0:0:0:0:0:1 - - [09/Dec/2018:09:21:47 +0000] "GET /REST/ HTTP/1.1" 200 253
+0:0:0:0:0:0:0:1 - - [09/Dec/2018:09:22:03 +0000] "GET /REST/webapi/hello/test HTTP/1.1" 200 7
+0:0:0:0:0:0:0:1 - - [09/Dec/2018:09:28:54 +0000] "GET /REST/webapi/resource/create HTTP/1.1" 200 7
+0:0:0:0:0:0:0:1 - - [09/Dec/2018:09:29:37 +0000] "GET /REST/webapi/resource/read HTTP/1.1" 500 8218
+0:0:0:0:0:0:0:1 - - [09/Dec/2018:09:31:10 +0000] "GET /REST/webapi/resource/read HTTP/1.1" 500 8218
+0:0:0:0:0:0:0:1 - - [09/Dec/2018:09:31:28 +0000] "GET /REST/webapi/resource/read HTTP/1.1" 500 8218
+0:0:0:0:0:0:0:1 - - [09/Dec/2018:09:31:57 +0000] "GET /REST/webapi/resource/create HTTP/1.1" 200 7
