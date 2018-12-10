@@ -20,7 +20,6 @@ public class DatabaseServiceImpl extends UnicastRemoteObject implements Database
 
 	private static final long serialVersionUID = 1L;
 
-	//variables to keep track of counts
 	private int createCount;
 	private int readCount;
 	private int updateCount;
@@ -30,19 +29,15 @@ public class DatabaseServiceImpl extends UnicastRemoteObject implements Database
 	private int dbchanged = 0;
 
 	private final int minchanges = 0; // write to disk if > 2 items outstanding
-	//record id's begin at 456124 etc
 	private final int baserec = 456123;
 
-	//list that holds the records id's
 	private List<String> alist;
 
-	//constructor
 	protected DatabaseServiceImpl() throws RemoteException {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	//creating records
 	public int create(String newrec) {
 		// System.out.println("This is an example create method");
 		createCount++;
@@ -142,7 +137,6 @@ public class DatabaseServiceImpl extends UnicastRemoteObject implements Database
 
 	}
 
-	//save updated/created/deleted/read functions
 	private int save() {
 
 		System.out.println("In save() function - dbchanged = " + dbchanged);

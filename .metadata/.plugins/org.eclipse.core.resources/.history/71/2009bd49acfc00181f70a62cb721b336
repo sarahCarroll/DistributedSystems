@@ -36,13 +36,11 @@ public class DatabaseServiceImpl extends UnicastRemoteObject implements Database
 	//list that holds the records id's
 	private List<String> alist;
 
-	//constructor
 	protected DatabaseServiceImpl() throws RemoteException {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	//creating records
 	public int create(String newrec) {
 		// System.out.println("This is an example create method");
 		createCount++;
@@ -142,7 +140,6 @@ public class DatabaseServiceImpl extends UnicastRemoteObject implements Database
 
 	}
 
-	//save updated/created/deleted/read functions
 	private int save() {
 
 		System.out.println("In save() function - dbchanged = " + dbchanged);

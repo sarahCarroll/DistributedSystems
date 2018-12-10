@@ -142,7 +142,6 @@ public class DatabaseServiceImpl extends UnicastRemoteObject implements Database
 
 	}
 
-	//save updated/created/deleted/read functions
 	private int save() {
 
 		System.out.println("In save() function - dbchanged = " + dbchanged);

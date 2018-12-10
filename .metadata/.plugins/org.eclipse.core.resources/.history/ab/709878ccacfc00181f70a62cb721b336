@@ -16,7 +16,6 @@ public class RMI {
 		System.out.println("connection");
 	}
 
-	//create method that gets passed in the record and returns the content of create method in databaseServiceImpl
 	public int create(String newrec) throws RemoteException {
 		int rid = db.create(newrec);
 		System.out.println("create returned: " + rid);

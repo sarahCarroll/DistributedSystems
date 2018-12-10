@@ -53,3 +53,13 @@
 0:0:0:0:0:0:0:1 - - [10/Dec/2018:16:27:42 +0000] "GET /REST/read.htm HTTP/1.1" 304 -
 0:0:0:0:0:0:0:1 - - [10/Dec/2018:16:27:45 +0000] "POST /REST/webapi/resource/read HTTP/1.1" 204 -
 0:0:0:0:0:0:0:1 - - [10/Dec/2018:16:27:47 +0000] "POST /REST/webapi/resource/read HTTP/1.1" 204 -
+127.0.0.1 - - [10/Dec/2018:18:41:59 +0000] "GET / HTTP/1.1" 404 1036
+0:0:0:0:0:0:0:1 - - [10/Dec/2018:18:42:00 +0000] "GET /REST/ HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [10/Dec/2018:18:42:05 +0000] "GET /REST/delete.htm HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [10/Dec/2018:18:42:12 +0000] "GET /REST/create.htm HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [10/Dec/2018:18:42:25 +0000] "POST /REST/webapi/resource/create HTTP/1.1" 200 6
+0:0:0:0:0:0:0:1 - - [10/Dec/2018:18:42:31 +0000] "GET /REST/index.htm HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [10/Dec/2018:18:42:33 +0000] "GET /REST/delete.htm HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [10/Dec/2018:18:42:35 +0000] "POST /REST/webapi/resource/delete HTTP/1.1" 405 1056
+0:0:0:0:0:0:0:1 - - [10/Dec/2018:18:43:25 +0000] "POST /REST/webapi/resource/delete HTTP/1.1" 200 21
+0:0:0:0:0:0:0:1 - - [10/Dec/2018:18:43:30 +0000] "POST /REST/webapi/resource/delete HTTP/1.1" 200 21
