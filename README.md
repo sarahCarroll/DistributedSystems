@@ -45,3 +45,12 @@ This could be also wriiten to an SQL database again as a single String keyed by 
 ###### The DatabaseServerInterface.java extends UnicastRemoteObject implements DatabaseService 
 
 The class creates methods for each of the called methods. The information in stored in a file called RENTALS.DAT. 
+
+#### Additional features
+- Jar file created run java –cp ./database-service.jar ie.gmit.sw.ServiceSetup to test.
+- War file created.
+
+###### References
+https://www.google.ie/search?ei=SaUOXI7QIILfxgP1qa_YBw&q=%40formparam+jax-rs&oq=%40formparam+jax&gs_l=psy-ab.3.0.0j0i22i10i30l3.514.2771..4491...3.0..1.449.1082.2j4j4-1......0....1..gws-wiz.......35i39j0i20i263j0i22i30.MsOFRi5tr4k  
+https://www.baeldung.com/jersey-jax-rs-client  
+https://jersey.github.io/  
