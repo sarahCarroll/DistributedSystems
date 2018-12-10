@@ -5,44 +5,41 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
+import ie.gmit.sw.models.Rental;
+
 public class RMI {
-	
-	private DatabaseService  db;
-	
+
+	private DatabaseService db;
+
 	public RMI() throws MalformedURLException, RemoteException, NotBoundException {
-		 db = (DatabaseService) Naming.lookup("rmi://127.0.0.1:1099/databaseService");
+		db = (DatabaseService) Naming.lookup("rmi://127.0.0.1:1099/databaseService");
 		System.out.println("connection");
 	}
 
-	public int create(String newrecord) throws RemoteException {
-		int rid = db.create(newrecord);
-		System.out.println("create returned: " +rid);
-		//might need error handling
+	public int create(String newrec) throws RemoteException {
+		int rid = db.create(newrec);
+		System.out.println("create returned: " + rid);
+		// might need error handling
 		return rid;
 	}
-	
+
 	public String read(int rid) throws RemoteException {
 		String result = db.read(rid);
-		if(result == null){
+		if (result == null) {
 			System.out.println("record does not exist");
-		}
-		else
+		} else
 			System.out.println(result);
 		return result;
 	}
-	
-	public void update(int rid,String newrecord) throws RemoteException {
-		String result = db.read(rid);
-		if(result == null){
-			System.out.println("record does not exist");
+
+	public String update(String updaterec) throws RemoteException {
+		int rid = db.create(updaterec);
+		System.out.println("create returned: " + rid);
+		// might need error handling
+		return updaterec;
 		}
-		else{
-			System.out.println(result);
-		}
-		System.out.println(db.update(rid,newrecord));
-	}
-	
-	public void delete(int rid) throws RemoteException {
+
+		public void delete(int rid) throws RemoteException {
 		System.out.println(db.delete(rid));
 	}
 }

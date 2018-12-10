@@ -3,6 +3,9 @@ package ie.gmit.sw;
 import java.rmi.*;
 import java.rmi.server.*;
 import java.util.*;
+
+import ie.gmit.sw.models.Rental;
+
 import java.io.*;
 
 /*
@@ -82,7 +85,7 @@ public class DatabaseServiceImpl extends UnicastRemoteObject implements Database
 
 	// UPDATE existing Car Rental record
 
-	public int update(int recnum, String updatedrec) {
+	public int update(String updatedrec) {
 		// System.out.println("This is an example update method");
 		updateCount++;
 
@@ -92,13 +95,10 @@ public class DatabaseServiceImpl extends UnicastRemoteObject implements Database
 													// ArrayList from disk
 		}
 
-		if (recnum < baserec)
-			return -1;
+		alist.add(updatedrec); // This will add string at the end of List
 
-		if (recnum > alist.size() + baserec - 1)
-			return -1;
-
-		alist.set(recnum - baserec, updatedrec);
+		int recnum = baserec + (alist.size() - 1); // first record has id of
+													// 456123
 
 		dbchanged++;
 
@@ -188,4 +188,6 @@ public class DatabaseServiceImpl extends UnicastRemoteObject implements Database
 	public String test() throws RemoteException {
 		return "Hello my name is sarah :)";
 	}
+
+	
 }
